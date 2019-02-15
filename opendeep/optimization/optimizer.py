@@ -26,7 +26,7 @@ import time
 # third party
 import numpy
 import theano.tensor as T
-from theano.compat.python2x import OrderedDict
+from collections import OrderedDict
 from six import iteritems
 # internal references
 from opendeep.utils.constructors import sharedX, function, grad

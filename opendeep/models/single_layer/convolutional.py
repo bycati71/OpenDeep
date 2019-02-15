@@ -13,7 +13,7 @@ import logging
 from collections import Iterable
 # third party libraries
 from theano import config
-from theano.compat.python2x import OrderedDict
+from collections import OrderedDict
 from theano.tensor.nnet import conv2d
 from theano.tensor.nnet.abstract_conv import get_conv_output_shape, get_conv_shape_1axis
 import theano.sandbox.rng_mrg as RNG_MRG
@@ -27,14 +27,14 @@ from opendeep.utils.weights import (get_weights, get_bias)
 log = logging.getLogger(__name__)
 
 # flag for having NVIDIA's CuDNN library.
-has_cudnn = True
-try:
-    from theano.sandbox.cuda import dnn
-    has_cudnn = dnn.dnn_available()
-except ImportError as e:
-    has_cudnn = False
-    log.warning("Could not import CuDNN from theano. For fast convolutions, "
-                "please install it like so: http://deeplearning.net/software/theano/library/sandbox/cuda/dnn.html")
+has_cudnn = False
+# try:
+#     from theano.sandbox.cuda import dnn
+#     has_cudnn = dnn.dnn_available()
+# except ImportError as e:
+#     has_cudnn = False
+#     log.warning("Could not import CuDNN from theano. For fast convolutions, "
+#                 "please install it like so: http://deeplearning.net/software/theano/library/sandbox/cuda/dnn.html")
 
 # Some convolution operations only work on the GPU, so do a check here:
 if not config.device.startswith('gpu'):

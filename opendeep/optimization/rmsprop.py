@@ -5,7 +5,7 @@ Generic implementation of RMSProp training algorithm.
 import logging
 # third party libraries
 import theano.tensor as T
-from theano.compat.python2x import OrderedDict  # use this compatibility OrderedDict
+from collections import OrderedDict  # use this compatibility OrderedDict
 # internal references
 from opendeep.utils.constructors import sharedX
 from opendeep.optimization.optimizer import Optimizer

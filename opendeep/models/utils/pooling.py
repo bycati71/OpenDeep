@@ -11,12 +11,12 @@ except ImportError:
 from opendeep.models.utils import ModifyLayer
 
 # flag for having NVIDIA's CuDNN library.
-has_cudnn = True
-try:
-    from theano.sandbox.cuda.dnn import dnn_pool, dnn_available
-    has_cudnn = dnn_available()
-except ImportError as e:
-    has_cudnn = False
+has_cudnn = False
+# try:
+#     from theano.sandbox.cuda.dnn import dnn_pool, dnn_available
+#     has_cudnn = dnn_available()
+# except ImportError as e:
+#     has_cudnn = False
 
 def _pool_out_size(imgshape, ds, st, padding, ignore_border=True):
     if st is None:

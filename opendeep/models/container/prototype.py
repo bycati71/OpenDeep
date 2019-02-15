@@ -7,7 +7,7 @@ for experimentation, and then later you should make your creation into a new :cl
 import logging
 from inspect import isclass
 # third party libraries
-from theano.compat.python2x import OrderedDict
+from collections import OrderedDict
 from theano.tensor import TensorType
 # internal references
 from opendeep.models.model import Model

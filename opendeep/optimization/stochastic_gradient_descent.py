@@ -4,7 +4,7 @@ Generic stochastic gradient descent optimization with momentum (Nesterov acceler
 # standard libraries
 import logging
 # third party libraries
-from theano.compat.python2x import OrderedDict  # use this compatibility OrderedDict
+from collections import OrderedDict  # use this compatibility OrderedDict
 from six import iteritems
 # internal references
 from opendeep.utils.constructors import sharedX

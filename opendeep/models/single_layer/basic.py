@@ -4,7 +4,7 @@ This module provides the most basic neural net layers. This goes from an input t
 # standard libraries
 import logging
 # third party libraries
-from theano.compat.python2x import OrderedDict
+from collections import OrderedDict
 from theano.tensor import (dot, argmax, neq, mean)
 import theano.sandbox.rng_mrg as RNG_MRG
 # internal references

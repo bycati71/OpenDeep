@@ -10,7 +10,7 @@ import logging
 import os
 import time
 # third party
-from theano.compat.python2x import OrderedDict  # use this compatibility OrderedDict
+from collections import OrderedDict  # use this compatibility OrderedDict
 # internal references
 import opendeep.models
 from opendeep.utils.decorators import init_optimizer
