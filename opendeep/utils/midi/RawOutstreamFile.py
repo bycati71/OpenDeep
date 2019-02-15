@@ -1,13 +1,12 @@
-# -*- coding: ISO-8859-1 -*-
-
 # standard library imports
 from __future__ import absolute_import
 import sys
 from six import string_types
-try:
-    from StringIO import StringIO
-except ImportError:
-    from io import StringIO
+# try:
+#     from StringIO import StringIO
+# except ImportError:
+#     from io import StringIO
+from io import BytesIO
 
 # custom import
 from .DataTypeConverters import writeBew, writeVar, fromBytes
@@ -21,7 +20,7 @@ class RawOutstreamFile:
     """
 
     def __init__(self, outfile=''):
-        self.buffer = StringIO()
+        self.buffer = BytesIO()
         self.outfile = outfile
 
 
@@ -30,7 +29,7 @@ class RawOutstreamFile:
 
     def writeSlice(self, str_slice):
         "Writes the next text slice to the raw data"
-        self.buffer.write(str_slice)
+        self.buffer.write(str_slice if not isinstance(str_slice, str) else str_slice.encode('ascii'))
         
         
     def writeBew(self, value, length=1):
